@@ -12,14 +12,12 @@ while venceu == False and empate == False:
     else:
         simbolo = "O"
 
-    # Controle para saber se a jogada foi válida
+    # Controle da jogada
     jogada_valida = False
 
-    # Aqui entra a parte do DEV 1:
-    # mostrar o tabuleiro
-    # receber a posição escolhida
-    # verificar se a posição está livre
-    # atualizar o tabuleiro
-
-    # A verificação da jogada válida será integrada
-    # com o código do DEV 1
+    # Aguardando integração com o DEV 1:
+    # Mostrar o tabuleiro
+    # Receber a posição escolhida
+    # Verificar se a posição está livre
+    # Atualizar o tabuleiro
+    
