@@ -30,3 +30,8 @@ while venceu == False and empate == False:
     for i in range(3):
         if tabuleiro[i][0] == simbolo and tabuleiro[i][1] == simbolo and tabuleiro[i][2] == simbolo:
             venceu = True
+
+    # Verifica as colunas
+    for i in range(3):
+        if tabuleiro[0][i] == simbolo and tabuleiro[1][i] == simbolo and tabuleiro[2][i] == simbolo:
+            venceu = True
