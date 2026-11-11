@@ -2,7 +2,7 @@
 # DEV 1 - Jogo da Velha
 # ETAPA 1: Criacao e exibicao do tabuleiro
 
-# Matriz com tres linhas e tres colunas
+# Matriz 3x3 declarada explicitamente
 tabuleiro = [
     [" ", " ", " "],
     [" ", " ", " "],
@@ -11,15 +11,13 @@ tabuleiro = [
 
 print("Tabuleiro 3x3 criado.")
 
-# Exibe os numeros das colunas
+# Exibicao do tabuleiro com for aninhado
 print("    1   2   3")
 
-# O primeiro for percorre as linhas
 for i in range(3):
     print("  -------------")
     print(str(i + 1) + " |", end="")
 
-    # O segundo for percorre as colunas
     for j in range(3):
         print(" " + tabuleiro[i][j] + " |", end="")
 
@@ -28,63 +26,56 @@ for i in range(3):
 print("  -------------")
 
 
-# DEV 1 - ETAPA 2
-# Leitura e validacao da linha
+# ETAPA 2: Leitura e validacao das entradas
+# ETAPA 3: Verificacao de casas ocupadas
 
-valida = False
+jogada_concluida = False
 
-# Continua solicitando ate receber uma linha valida
-while valida == False:
+# Repete a escolha enquanto a casa nao estiver livre
+while jogada_concluida == False:
 
-    entrada = input("Digite a linha (1 a 3): ")
+    # Validacao da linha
+    valida = False
 
-    # Compara o texto digitado com 1, 2 e 3
-    for n in range(1, 4):
+    while valida == False:
+        entrada = input("Digite a linha (1 a 3): ")
 
-        if entrada == str(n):
-            valida = True
+        for n in range(1, 4):
+            if entrada == str(n):
+                valida = True
 
-    if valida == False:
+        if valida == False:
+            if entrada == "":
+                print("Campo vazio! Informe a linha.")
+            else:
+                print("Linha invalida! Digite 1, 2 ou 3.")
 
-        if entrada == "":
-            print("Campo vazio! Informe a linha.")
+    # Conversao apos validar
+    linha = int(entrada) - 1
 
-        else:
-            print("Linha invalida! Digite 1, 2 ou 3.")
+    # Validacao da coluna
+    valida = False
 
-# Converte somente depois da validacao
-# O indice da matriz comeca em zero
-linha = int(entrada) - 1
+    while valida == False:
+        entrada = input("Digite a coluna (1 a 3): ")
 
-print("Linha escolhida:", linha + 1)
+        for n in range(1, 4):
+            if entrada == str(n):
+                valida = True
 
+        if valida == False:
+            if entrada == "":
+                print("Campo vazio! Informe a coluna.")
+            else:
+                print("Coluna invalida! Digite 1, 2 ou 3.")
 
-# Leitura e validacao da coluna
+    # Conversao apos validar
+    coluna = int(entrada) - 1
 
-valida = False
+    # Verifica se a casa esta disponivel
+    if tabuleiro[linha][coluna] == " ":
+        jogada_concluida = True
+        print("Casa disponivel! Jogada aceita.")
 
-# Continua solicitando ate receber uma coluna valida
-while valida == False:
-
-    entrada = input("Digite a coluna (1 a 3): ")
-
-    # Verifica se a entrada corresponde a 1, 2 ou 3
-    for n in range(1, 4):
-
-        if entrada == str(n):
-            valida = True
-
-    if valida == False:
-
-        if entrada == "":
-            print("Campo vazio! Informe a coluna.")
-
-        else:
-            print("Coluna invalida! Digite 1, 2 ou 3.")
-
-# Converte somente depois da validacao
-coluna = int(entrada) - 1
-
-print("Posicao selecionada:")
-print("Linha:", linha + 1)
-print("Coluna:", coluna + 1)
+    else:
+        print("Casa ocupada! Escolha outra posicao.")
