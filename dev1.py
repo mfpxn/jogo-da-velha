@@ -25,3 +25,53 @@ for i in range(3):
     print()
 
 print("  -------------")
+
+# DEV 1 - ETAPA 2
+# Leitura e validacao da linha
+
+valida = False
+
+# Continua solicitando ate receber uma linha valida
+while valida == False:
+
+    entrada = input("Digite a linha (1 a 3): ")
+
+    # Compara o texto digitado com 1, 2 e 3
+    for n in range(1, 4):
+
+        if entrada == str(n):
+            valida = True
+
+    if valida == False:
+        print("Linha invalida! Digite 1, 2 ou 3.")
+
+# Converte somente depois da validacao
+# O indice da matriz comeca em zero
+linha = int(entrada) - 1
+
+print("Linha escolhida:", linha + 1)
+
+# Leitura e validacao da coluna
+
+valida = False
+
+# Continua solicitando ate receber uma coluna valida
+while valida == False:
+
+    entrada = input("Digite a coluna (1 a 3): ")
+
+    # Verifica se a entrada corresponde a 1, 2 ou 3
+    for n in range(1, 4):
+
+        if entrada == str(n):
+            valida = True
+
+    if valida == False:
+        print("Coluna invalida! Digite 1, 2 ou 3.")
+
+# Converte somente depois da validacao
+coluna = int(entrada) - 1
+
+print("Posicao selecionada:")
+print("Linha:", linha + 1)
+print("Coluna:", coluna + 1)
