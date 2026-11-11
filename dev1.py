@@ -2,18 +2,20 @@
 # DEV 1 - Jogo da Velha
 # ETAPA 1: Criacao e exibicao do tabuleiro
 
-# Matriz 3x3 declarada explicitamente
 tabuleiro = [
     [" ", " ", " "],
     [" ", " ", " "],
     [" ", " ", " "]
 ]
 
-print("Tabuleiro 3x3 criado.")
+# Apenas para teste independente do DEV 1.
+# Na integracao, o DEV 2 definira o simbolo.
+simbolo = "X"
 
-# Exibicao do tabuleiro com for aninhado
+print("Tabuleiro 3x3 criado.")
 print("    1   2   3")
 
+# Percorre as linhas e colunas com for aninhado
 for i in range(3):
     print("  -------------")
     print(str(i + 1) + " |", end="")
@@ -27,11 +29,11 @@ print("  -------------")
 
 
 # ETAPA 2: Leitura e validacao das entradas
-# ETAPA 3: Verificacao de casas ocupadas
+# ETAPA 3: Impedir casas ocupadas e atualizar a matriz
 
 jogada_concluida = False
 
-# Repete a escolha enquanto a casa nao estiver livre
+# Repete ate conseguir realizar uma jogada valida
 while jogada_concluida == False:
 
     # Validacao da linha
@@ -50,7 +52,7 @@ while jogada_concluida == False:
             else:
                 print("Linha invalida! Digite 1, 2 ou 3.")
 
-    # Conversao apos validar
+    # Converte apenas depois da validacao
     linha = int(entrada) - 1
 
     # Validacao da coluna
@@ -69,13 +71,29 @@ while jogada_concluida == False:
             else:
                 print("Coluna invalida! Digite 1, 2 ou 3.")
 
-    # Conversao apos validar
+    # Converte apenas depois da validacao
     coluna = int(entrada) - 1
 
-    # Verifica se a casa esta disponivel
+    # Verifica se a casa esta vazia
+    # Este bloco precisa ficar DENTRO do while
     if tabuleiro[linha][coluna] == " ":
+        tabuleiro[linha][coluna] = simbolo
         jogada_concluida = True
-        print("Casa disponivel! Jogada aceita.")
-
+        print("Jogada realizada!")
     else:
         print("Casa ocupada! Escolha outra posicao.")
+
+
+# Atualizar a exibicao depois da jogada
+print("    1   2   3")
+
+for i in range(3):
+    print("  -------------")
+    print(str(i + 1) + " |", end="")
+
+    for j in range(3):
+        print(" " + tabuleiro[i][j] + " |", end="")
+
+    print()
+
+print("  -------------")
