@@ -35,3 +35,11 @@ while venceu == False and empate == False:
     for i in range(3):
         if tabuleiro[0][i] == simbolo and tabuleiro[1][i] == simbolo and tabuleiro[2][i] == simbolo:
             venceu = True
+
+        # Verifica a diagonal principal
+    if tabuleiro[0][0] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][2] == simbolo:
+        venceu = True
+
+    # Verifica a diagonal secundaria
+    if tabuleiro[0][2] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][0] == simbolo:
+        venceu = True
