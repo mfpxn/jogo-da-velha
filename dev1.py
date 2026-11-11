@@ -1,5 +1,6 @@
+
 # DEV 1 - Jogo da Velha
-# ETAPA 1: Criacao do tabuleiro
+# ETAPA 1: Criacao e exibicao do tabuleiro
 
 # Matriz com tres linhas e tres colunas
 tabuleiro = [
@@ -26,6 +27,7 @@ for i in range(3):
 
 print("  -------------")
 
+
 # DEV 1 - ETAPA 2
 # Leitura e validacao da linha
 
@@ -42,17 +44,20 @@ while valida == False:
         if entrada == str(n):
             valida = True
 
-if valida == False:
-    if entrada == "":
-        print("Campo vazio! Informe a linha.")
-    else:
-        print("Linha invalida! Digite 1, 2 ou 3.")
+    if valida == False:
+
+        if entrada == "":
+            print("Campo vazio! Informe a linha.")
+
+        else:
+            print("Linha invalida! Digite 1, 2 ou 3.")
 
 # Converte somente depois da validacao
 # O indice da matriz comeca em zero
 linha = int(entrada) - 1
 
 print("Linha escolhida:", linha + 1)
+
 
 # Leitura e validacao da coluna
 
@@ -69,11 +74,14 @@ while valida == False:
         if entrada == str(n):
             valida = True
 
-        if valida == False:
-         if entrada == "":
-          print("Campo vazio! Informe a coluna.")
-    else:
-        print("Coluna invalida! Digite 1, 2 ou 3.")
+    if valida == False:
+
+        if entrada == "":
+            print("Campo vazio! Informe a coluna.")
+
+        else:
+            print("Coluna invalida! Digite 1, 2 ou 3.")
+
 # Converte somente depois da validacao
 coluna = int(entrada) - 1
 
