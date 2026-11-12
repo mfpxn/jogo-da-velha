@@ -34,7 +34,7 @@ campeao = ""
 
 # CONTROLE DA INTEGRACAO
 
-integracao_pronta = False
+integracao_pronta = True
 
 # CONTROLE DO PROGRAMA
 
@@ -173,8 +173,117 @@ while executando == True:
             # 6. Definir partida_concluida = True ao terminar.
             #
             # O bloco de jogo sera inserido aqui.
+            # INTEGRACAO DO JOGO - DEV 1 E DEV 2
 
-            print("Bloco de integracao ainda nao inserido.")
+            jogador = "X"
+            jogadas = 0
+
+            while partida_concluida == False:
+
+                # MOSTRAR TABULEIRO
+
+                print("    1   2   3")
+
+                for i in range(3):
+                    print("  -------------")
+                    print(str(i + 1) + " |", end="")
+
+                    for j in range(3):
+                        print(" " + tabuleiro[i][j] + " |", end="")
+
+                    print()
+
+                print("  -------------")
+                print("Vez do jogador " + jogador + "!")
+
+                if jogador == "X":
+                    simbolo = "X"
+                else:
+                    simbolo = "O"
+
+                # VALIDAR LINHA
+
+                linha_valida = False
+
+                while linha_valida == False:
+
+                    entrada = input("Digite a linha (1 a 3): ")
+
+                    for n in range(1, 4):
+                        if entrada == str(n):
+                            linha_valida = True
+
+                    if linha_valida == False:
+                        print("Linha invalida! Digite 1, 2 ou 3.")
+
+                linha = int(entrada) - 1
+
+                # VALIDAR COLUNA
+
+                coluna_valida = False
+
+                while coluna_valida == False:
+
+                    entrada = input("Digite a coluna (1 a 3): ")
+
+                    for n in range(1, 4):
+                        if entrada == str(n):
+                            coluna_valida = True
+
+                    if coluna_valida == False:
+                        print("Coluna invalida! Digite 1, 2 ou 3.")
+
+                coluna = int(entrada) - 1
+
+                # VERIFICAR POSICAO
+
+                if tabuleiro[linha][coluna] == " ":
+
+                    tabuleiro[linha][coluna] = simbolo
+                    jogadas = jogadas + 1
+
+                    # VERIFICAR VITORIA
+
+                    venceu = False
+
+                    if (tabuleiro[0][0] == simbolo and tabuleiro[0][1] == simbolo and tabuleiro[0][2] == simbolo) or (tabuleiro[1][0] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[1][2] == simbolo) or (tabuleiro[2][0] == simbolo and tabuleiro[2][1] == simbolo and tabuleiro[2][2] == simbolo) or (tabuleiro[0][0] == simbolo and tabuleiro[1][0] == simbolo and tabuleiro[2][0] == simbolo) or (tabuleiro[0][1] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][1] == simbolo) or (tabuleiro[0][2] == simbolo and tabuleiro[1][2] == simbolo and tabuleiro[2][2] == simbolo) or (tabuleiro[0][0] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][2] == simbolo) or (tabuleiro[0][2] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][0] == simbolo):
+
+                        venceu = True
+                        resultado_partida = jogador
+                        partida_concluida = True
+
+                    elif jogadas == 9:
+
+                        resultado_partida = "E"
+                        partida_concluida = True
+
+                    else:
+
+                        if jogador == "X":
+                            jogador = "O"
+                        else:
+                            jogador = "X"
+
+                else:
+
+                    print("Essa casa ja esta ocupada!")
+                    print("Escolha outra posicao.")
+
+            # MOSTRAR TABULEIRO FINAL
+
+            print("    1   2   3")
+
+            for i in range(3):
+                print("  -------------")
+                print(str(i + 1) + " |", end="")
+
+                for j in range(3):
+                    print(" " + tabuleiro[i][j] + " |", end="")
+
+                print()
+
+            print("  -------------")
+
 
             # CONTABILIZAR RESULTADO DA PARTIDA
 
