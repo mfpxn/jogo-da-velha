@@ -43,3 +43,20 @@ while venceu == False and empate == False:
     # Verifica a diagonal secundaria
     if tabuleiro[0][2] == simbolo and tabuleiro[1][1] == simbolo and tabuleiro[2][0] == simbolo:
         venceu = True
+
+        # DEV 2 - ETAPA 3
+    # Verifica se houve empate
+
+    if venceu == False:
+
+        casas_vazias = 0
+
+        # Conta as posicoes vazias do tabuleiro
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] == " ":
+                    casas_vazias = casas_vazias + 1
+
+        # Se nao houver casas vazias, houve empate
+        if casas_vazias == 0:
+            empate = True
