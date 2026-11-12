@@ -75,9 +75,9 @@ while executando == True:
         vitorias_campeonato_x = 0
         vitorias_campeonato_o = 0
         campeonato_ativo = True
+        campeonato_contabilizado = False
         campeao = ""
 
-        campeonatos_iniciados = campeonatos_iniciados + 1
 
         print("==============================")
         print(" CAMPEONATO MELHOR DE 3")
@@ -156,6 +156,11 @@ while executando == True:
             iniciar_partida = False
 
         else:
+
+            if modo_campeonato == True and campeonato_contabilizado == False:
+
+                campeonatos_iniciados = campeonatos_iniciados + 1
+                campeonato_contabilizado = True
 
             # PONTO DE INTEGRACAO COM DEV 1 E DEV 2
             #
@@ -236,6 +241,8 @@ while executando == True:
                         if vitorias_campeonato_x == 2 or vitorias_campeonato_o == 2 or partidas_campeonato == 3:
 
                             campeonato_ativo = False
+
+                            campeonato_contabilizado = False
 
                             if vitorias_campeonato_x > vitorias_campeonato_o:
 
