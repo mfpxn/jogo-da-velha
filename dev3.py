@@ -397,6 +397,11 @@ while executando == True:
 
                         jogar_novamente = input("Deseja jogar novamente? (S/N): ")
 
+                        while jogar_novamente != "S" and jogar_novamente != "s" and jogar_novamente != "N" and jogar_novamente != "n":
+
+                            print("Opcao invalida! Digite S ou N.")
+                            jogar_novamente = input("Deseja jogar novamente? (S/N): ")
+
                         if jogar_novamente == "S" or jogar_novamente == "s":
 
                             iniciar_partida = True
